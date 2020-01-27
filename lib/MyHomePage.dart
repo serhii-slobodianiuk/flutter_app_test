@@ -11,7 +11,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Color _color = Color(0xABCDEF01);
+  Color _color = Color(0xFFFF9000);
+  bool _click = false;
   Random random = new Random();
 
   void changeIndex() {
@@ -27,20 +28,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: changeIndex,
+      onTap: () {
+        setState(() {
+          _click = !_click;
+          changeIndex();
+        });
+      },
       child: Container(
         child: Center(
-          child: Text(
-            'Hey There!',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
+          child: AnimatedContainer(
+            color: _color,
+            alignment: _click
+                ? Alignment.bottomCenter
+                : AlignmentDirectional.topCenter,
+            duration: Duration(milliseconds: 2000),
+            curve: Curves.fastOutSlowIn,
+            child: Text(
+              'Hey There!',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
             ),
           ),
-        ),
-        decoration: BoxDecoration(
-          color: _color,
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'MyHomePage.dart';
 
 class MyApp extends StatelessWidget {
@@ -9,8 +8,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
-        body: Center(
-          child: MyHomePage(),
+        body: MyHomePage(
+//          child: MyHomePage(),
         ),
       ),
     );
