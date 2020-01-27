@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: Scaffold(
         body: MyHomePage(
-//          child: MyHomePage(),
         ),
       ),
     );
